@@ -10,6 +10,7 @@ void setup() {
 }
 
 void draw() {
+
   //will add more animations
   head(); //function call for head shapes
 }
@@ -59,10 +60,16 @@ void head() {
 void mousePressed() {
   fill(240, 210, 0);
   rect(0, 0, 600, 350);
+  //PLUS AND EQUAL SIGNS
+  fill(0);
+  rect(180, 115, 20, 70);
+  rect(155, 140, 70, 20);
+  rect(355, 125, 70, 20);
+  rect(355, 155, 70, 20);
   int y = 100; //height of all digits
-  int x1 = 10; //first digit pos
-  int x2 = 200; //second digit pos
-  int x3 = 400; //sum pos
+  int x1 = 50; //first digit pos
+  int x2 = 250; //second digit pos
+  int x3 = 450; //sum pos
   int num1 = int(random(1, 6));
   int num2 = int(random(1, 6));
   int num3 = num1 + num2;
@@ -76,8 +83,7 @@ void mousePressed() {
 
 //digits function uses the num 1,2,3 and x,y positions as parameters 
 void digit(int number, int xpos, int ypos) {
-  //here I used if statements to determine which number function is going to be printed
-  //may change in future, is a bit lengthy
+  //currently using if statements to determine which number function is going to be called
   if (number == 1) {
     one(xpos, ypos);
   }
@@ -87,35 +93,100 @@ void digit(int number, int xpos, int ypos) {
   if (number == 3) {
     three(xpos, ypos);
   }
+  if (number == 4) {
+    four(xpos, ypos);
+  }
+  if (number == 5) {
+    five(xpos, ypos);
+  }
+  if (number == 6) {
+    six(xpos, ypos);
+  }
+  if (number == 7) {
+    seven(xpos, ypos);
+  }
+  if (number == 8) {
+    eight(xpos, ypos);
+  }
+  if (number == 9) {
+    nine(xpos, ypos);
+  }
+  if (number == 10) {
+    ten(xpos, ypos);
+  }
 }
 
 //roman-numeral type numbers are placeholders for actual number shapes I will create in the future
 void one(int x, int y) {
   fill(0);
-  rect(x, y, 30, 100);
+  rect(x + 30, y, 30, 100);
+  rect(x + 15, y, 15, 20);
 }
 void two(int x, int y) {
-  fill(0);
-  rect(x, y, 30, 100);
-  rect(x + 40, y, 30, 100);
+  fill(255);
+  rect(x, y, 80, 20);
+  rect(x + 60, y, 20, 60);
+  rect(x, y + 40, 80, 20);
+  rect(x, y + 40, 20, 60);
+  rect(x, y + 80, 80, 20);
 }
 void three(int x, int y) {
-  fill(0);
+  fill(100);
+  rect(x + 60, y, 20, 100);
+  rect(x, y, 80, 20);
+  rect(x + 5, y + 40, 75, 20);  
+  rect(x, y + 80, 80, 20);
+}
+void four(int x, int y) {
+  fill(150);
+  rect(x - 10, y, 20, 60);
+  rect(x - 10, y + 40, 80, 20);
+  rect(x + 60, y, 20, 100);
+}
+void five(int x, int y) {
+  fill(10, 50, 70);
+  rect(x, y, 80, 20);
+  rect(x, y, 20, 60);
+  rect(x, y + 40, 80, 20);
+  rect(x + 60, y + 40, 20, 60);
+  rect(x, y + 80, 80, 20);
+}
+void six(int x, int y) {
+  fill(10, 50, 70);
+  rect(x, y, 90, 20);
+  rect(x, y, 20, 100);
+  rect(x, y + 40, 80, 20);
+  rect(x + 70, y + 40, 20, 60);
+  rect(x, y + 80, 80, 20);
+}
+void seven(int x, int y) {
+  fill(40, 85, 10);
+  rect(x - 10, y, 90, 20);
+  rect(x + 60, y, 20, 100);
+}
+void eight(int x, int y) {
+  fill(20, 10, 80);
+  rect(x, y, 80, 20);
+  rect(x + 70, y, 20, 100);
+  rect(x, y + 40, 80, 20);
+  rect(x, y, 20, 100);
+  rect(x, y + 80, 80, 20);
+}
+void nine(int x, int y) {
+  fill(90, 50, 20);
+  rect(x, y, 80, 20);
+  rect(x + 70, y, 20, 100);
+  rect(x, y + 40, 80, 20);
+  rect(x, y, 20, 60);
+  rect(x, y + 80, 80, 20);
+}
+void ten(int x, int y) {
+  fill(10, 120, 0);
   rect(x, y, 30, 100);
-  rect(x + 40, y, 30, 100);
-  rect(x + 80, y, 30, 100);
-}
-void four(){
-}
-void five(){
-}
-void six(){
-}
-void seven(){
-}
-void eight(){
-}
-void nine(){
-}
-void ten(){
+  rect(x - 15, y, 15, 20);
+  //zero
+  rect(x + 40, y, 80, 20);
+  rect(x + 100, y, 20, 100);
+  rect(x + 40, y, 20, 100);
+  rect(x + 40, y + 80, 80, 20);
 }
