@@ -13,14 +13,14 @@ float random1; //two values for calling "smarts()" function
 float random2;
 
 void setup() {
-  size(1000, 700); //extended canvas width
-  //frameRate(30);
+  size(1000, 690); //extended canvas width
+  frameRate(30);
 }
 
 void draw() {
   //will add more animations
-  //pattern();
-  background(240, 210, 0);
+  pattern();
+  //background(240, 210, 0);
   bubble();
   trail();
   head(); //function call for head shapes
@@ -92,44 +92,37 @@ void trail() {
   for (int i = 0; i < a; i++) {
     fill(60, 255, 230);
     stroke(0);
-    strokeWeight(2);
+    strokeWeight(3);
     int starA = 3; //width and height of this + shape
-    //first line displaced by -10
+    //first star displaced by -10
+    stroke(255, 255, 0);
     line(x[i] + i - 10, y[i] + i, x[i] + i - 10, y[i] + starA + i);
     line(x[i] - starA/2 + i - 10, y[i] + starA/2 + i, x[i] + starA/2 + i - 10, y[i] + starA/2 + i);
     int starB = 6;
+    stroke(230, 200, 0);
     line(x[i] + i/2, y[i] + i/2, x[i] + i/2, y[i] + starB + i/2);
     line(x[i] - starB/2 + i/2, y[i] + starB/2 + i/2, x[i] + starB/2 + i/2, y[i] + starB/2 + i/2);
-    int starC = 2;
+    int starC = 2; //this star is displaced ten left and down
+    stroke(255, 200, 0);
     line(x[i] + i/3 - 10, y[i] + i/3 + 10, x[i] + i/3 - 10, y[i] + starC + i/3 + 10);
     line(x[i] - starC/2 + i/3 - 10, y[i] + starC/2 + i/3 + 10, x[i] + starC/2 + i/3 - 10, y[i] + starC/2 + i/3 + 10);
   }
-  //for statement to draw the "glitter"
-  /*for (int i = 0; i < a; i++) {
-   fill(0, 100);
-   float ranInt3 = 0;
-   quad(x[i] + ranInt3, y[i] + ranInt3, (x[i] - i/8) + ranInt3, y[i] - i/4 + ranInt3, x[i] + ranInt3, y[i] - i/2 + ranInt3, x[i] + i/8 + ranInt3, y[i] - i/4 + ranInt3);
-   float ranInt2 = 5;
-   quad(x[i] + ranInt2, y[i] + ranInt2, (x[i] - i/8) + ranInt2, y[i] - i/4 + ranInt2, x[i] + ranInt2, y[i] - i/2 + ranInt2, x[i] + i/8 + ranInt2, y[i] - i/4 + ranInt2);
-   //quad(x[i] + ranInt2, y[i] + ranInt2, (x[i] - i/8) + ranInt2, y[i] - i/4 + ranInt2, x[i] + ranInt2, y[i] - i/2 + ranInt2, x[i] + i/8 + ranInt2, y[i] - i/4 + ranInt2);
-   float ranInt = 10;
-   quad(x[i] + ranInt, y[i] + ranInt, (x[i] - i/4) + ranInt, y[i] - i/8 + ranInt, x[i] + ranInt, y[i] - i/4 + ranInt, x[i] + i/4 + ranInt, y[i] - i/8 + ranInt);
-   }
-   */
 }
+//background pattern or animation
 //function for "pattern", will probably change
-/*void pattern() {
- background(240, 210, 0);
- for (int x = 0; x < 1200; x += 20) {
- for (int y = 0; y < 660; y += 20) {
- noStroke();
- fill(120);
- ellipse(x, y, 20, 22);
- }
- }
- }
- */
-
+void pattern() {
+  background(240, 210, 0);
+  for (int x = -100; x < 1200; x += 40) {
+    for (int y = 0; y < 800; y += 40) {
+      float r1 = map(x, 0, 1000, 190, 255);
+      float g1 = map(x, 0, 1000, 220, 255);
+      stroke(255);
+      strokeWeight(2);
+      fill(r1, g1, 0);
+      quad(x, y, x + 40, y, x + 60, y + 40, x + 20, y + 40);
+    }
+  }
+}
 //white thought-bubbles to encase math problems
 void bubble() {
   int bubbleX = 680;//bubble x position
@@ -282,4 +275,3 @@ void ten(int x, int y) {
   rect(x + 40, y, 20, 100);
   rect(x + 40, y + 80, 80, 20);
 }
-
